@@ -5,9 +5,8 @@ const Page = () => {
     useEffect(() => {
         console.log("page");
         window.addEventListener('message', (event) => {
-            if (event.origin === 'https://first-mirror.vercel.app/') {
-                console.log('Message received from iframe:', event.data);
-            }
+            console.log(event.origin);
+            console.log('Message received from iframe:', event.data);
         });
         return () => {
             window.removeEventListener('message', () => {});
