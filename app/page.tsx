@@ -3,13 +3,12 @@ import {useEffect} from "react";
 
 const Page = () => {
     useEffect(() => {
-        console.log("page");
-        window.addEventListener('message', (event) => {
-            console.log(event.origin);
+        const handleMessage = (event: MessageEvent) => {
             console.log('Message received from iframe:', event.data);
-        });
+        };
+        window.addEventListener('message', handleMessage);
         return () => {
-            window.removeEventListener('message', () => {});
+            window.removeEventListener('message', handleMessage);
         };
     }, []);
 
@@ -24,3 +23,4 @@ const Page = () => {
 }
 
 export default Page;
+
