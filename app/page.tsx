@@ -1,9 +1,8 @@
 const Page = () => {
   return(
       <div className="h-dvh w-full flex justify-center items-center">
-        <div className="w-1/3 bg-gray-200 flex justify-center h-full items-center">
-            <p className="text-black">second project</p>
-          <iframe className="h-full w-full" src="https://first-mirror.vercel.app/" />
+        <div className="w-1/3 bg-gray-200 flex flex-col justify-center h-full items-center">
+          <p className="text-2xl text-black font-semibold">Hello</p>
         </div>
       </div>
   )
