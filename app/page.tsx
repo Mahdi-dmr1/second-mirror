@@ -1,10 +1,18 @@
-const Page = () => {
+"use client"
+import {useEffect} from "react";
 
-    window.addEventListener('message', (event) => {
-        if (event.origin === 'https://first-mirror.vercel.app/') {
-            console.log('Message received from iframe:', event.data);
-        }
-    });
+const Page = () => {
+    useEffect(() => {
+        console.log("page");
+        window.addEventListener('message', (event) => {
+            if (event.origin === 'https://first-mirror.vercel.app/') {
+                console.log('Message received from iframe:', event.data);
+            }
+        });
+        return () => {
+            window.removeEventListener('message', () => {});
+        };
+    }, []);
 
   return(
       <div className="h-dvh w-full flex justify-center items-center">
